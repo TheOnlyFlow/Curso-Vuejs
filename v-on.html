@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas: v-on</title>
+</head>
+
+<body>
+
+    <div id="directives">
+
+        <p @click='reverseMessage'>{{message}}</p>
+
+        <h4 @[eventname]='reverseMessage'>{{message}}</h4>
+        <hr>
+
+        <input type="text" placeholder="Filtrar Pessoas" v-on:keyup='filterPersons'>
+
+        <ul>
+            <li v-for='person in personsFiltered'>{{person}}</li>
+        </ul>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-directives/dist/vue2-filters.min.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: '#directives',
+            data: {
+                message: 'The sweet blood, is enough to make a man sick',
+                eventname: 'click',
+                persons: ['Kadu Meireles', 'Dona Candinha', 'Hitomi Tanaka', 'Alex Goblens', 'Phantomas', 'Drauzio Varella'],
+                personsFiltered: []
+
+            },
+            methods: {
+                reverseMessage() {
+                    this.message = this.message.split('').reverse().join('')
+                },
+                filterPersons(event) {
+
+                    this.personsFiltered = this.persons.filter(name => {
+
+                        return name.toUpperCase().includes(event.target.
+                            value.toUpperCase())
+                    })
+                }
+            },
+            created(){
+                this.personsFiltered = this.person
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>
