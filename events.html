@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animações CSS - Transição entre Elementos </title>
+    
+</head>
+
+<body>
+
+    <div id="events">
+
+
+        <hr>
+        
+        <button v-on:click='add'>Lady Maria</button>
+
+        <h4>Você clicou na Maria {{counter}} vezes</h4>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+
+
+    <script>
+
+
+
+        let app = new Vue({
+            el: '#events',
+            data: {
+               counter: 0
+            },
+            methods:{
+                
+                add(){
+                    this.counter+=2;
+                }
+            }
+            
+
+
+        })
+
+
+    </script>
+</body>
+
+</html>

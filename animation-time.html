@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animações CSS - Duração </title>
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+    
+</head>
+
+<body>
+
+    <div id="transitions">
+
+        <h1 >Vue.js</h1>
+
+        <!-- Duração Fixa
+            <transition 
+        name='animation-first'
+        enter-active-class='bounceIn'
+        leave-active-class='bounceOut'
+        :duration='600'
+        >
+        <h2 v-if='show'>A hunter is a hunter, even in a dream</h2>
+            
+        </transition>
+
+        <button @click='show = !show'>Animate!</button> -->
+
+        <transition 
+        name='animation-first'
+        enter-active-class='animated rollIn'
+        leave-active-class='animated zoomOut'
+        :duration='{enter: 800, leave: 1000}'
+        >
+        <h2 v-if='show'>A hunter is a hunter, even in a dream</h2>
+            
+        </transition>
+
+        <button @click='show = !show'>Animate!</button>
+
+        
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+
+
+    <script>
+
+
+
+        let app = new Vue({
+            el: '#transitions',
+            data: {
+                show: true
+            },
+            
+
+
+        })
+
+
+    </script>
+</body>
+
+</html>
