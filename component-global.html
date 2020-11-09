@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component - Global</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+    <div id="components">
+
+        <div class="container">
+
+            <text-render text='Ola Mundo'></text-render>
+            <text-render text='A Hunter is a hunter, even in a dream'></text-render>
+            <text-render text='Peripecias peripicias'></text-render>
+
+            <hr>
+            <list-component></list-component>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+
+
+    <script>
+
+        Vue.component('text-render', {
+            props:['text'],
+            template: `
+
+            <div>
+                <h4> {{text}} </h4>
+            </div>
+            `
+        })
+        
+        Vue.component('list-component', {
+            template: ` 
+                <ul>
+                    <li v-for='person in names'> {{person}} </li>
+                </ul>
+            `,
+            data: function(){
+                
+                return{
+                    names: ['Lady Maria', 'Hitomete', 'Dr Lindoso']
+                }
+            }
+        })
+
+
+        let app = new Vue({
+            el: '#components',
+            data: {
+
+            }
+
+
+        })
+
+
+    </script>
+</body>
+
+</html>
