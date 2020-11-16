@@ -1,28 +1,65 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <AppHeader
+      @select-ambientes="changeAmbientes"
+      @change-component="changeComponent"
+    />
+
+    <AppSection
+      :ambientes="ambientes"
+      :current-component="currentSectionComponent"
+    />
+
+    <AppFooter />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AppHeader from "./components/AppHeader";
+import AppFooter from "./components/AppFooter";
+import AppSection from "./components/AppSection";
+
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    AppHeader,
+    AppSection,
+    AppFooter,
+  },
+  data() {
+    return {
+      currentSectionComponent: "AppSectionBanner",
+    }
+  },
+  methods: {
+    changeAmbientes(value) {
+      this.ambientes = value;
+    },
+    changeComponent(value) {
+
+      let component;
+
+      switch (value) {
+        
+         
+        default:
+          component = 'AppSectionBanner';
+          
+          break;
+
+        case 'feed':
+          component = 'AppSectionNews'
+          
+          break;
+      }
+
+      this.currentSectionComponent = component;
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import url("https://fonts.googleapis.com/css?family=Rajdhani&display=swap");
 </style>
