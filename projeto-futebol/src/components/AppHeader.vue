@@ -1,15 +1,22 @@
 <template>
     <header>
+        
 
         <div class="container">
+
             <nav class="navbar navbar-expand">
+
                 <a href="#" class="link navbar-brand mr-auto">
+
                 <img src="./../assets/deg-branco.png" alt="Logo DG"
                 class="img d-inline-block align-top" id="logo">
                  Cameras
                 </a>
 
                 <div class="links mr-2">
+
+                    <!-- <router-link active-class='link-active' to="/" class="btn mr-5"> Inicio</router-link>
+                    <router-link active-class='link-active' to="/feed" class="btn mr-5"> Feed</router-link> -->
 
                     <a href="#" @click.prevent="$emit('change-component', 'home')" class="btn mr-5">Início</a>
                     <a href="#" @click.prevent="$emit('change-component', 'feed')" class="btn mr-5">Feed</a>
@@ -62,5 +69,10 @@ header {
 .links a:focus {
     outline: none !important;
     box-shadow: none !important;
+}
+
+.link-active {
+    background-color: #fff;
+    color: #000 !important;
 }
 </style>

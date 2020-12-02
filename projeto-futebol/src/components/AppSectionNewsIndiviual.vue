@@ -10,11 +10,14 @@
     <div class="col-9">
       <div>
           <img :src="require('../assets/' + this.imgName)" :alt="imgInfo">
+
+           
         <canvas
           class="camera"
           id="videoCanvas"
           width="640" 
           height="360"
+          
            ></canvas>
       </div>
      
@@ -27,6 +30,7 @@
 
 <script>
 import Utils from "./../mixins/UtilsMixin";
+import JSMpeg from 'jsmpeg'
 
 
 
@@ -49,12 +53,16 @@ export default {
   mixins: [Utils],
 
   mounted(){
-    var canvas = document.getElementById("videoCanvas");
-    var uri= 'ws://localhost:9999'
 
-    var player = new JSMpeg.Player("ws://localhost:9999", {
-    canvas: canvas
-    });
+    var url = 'ws://localhost:8080' 
+    var canvas = document.getElementById('videoCanvas');
+    var player = new JSMpeg(url, {canvas: canvas});
+    // var canvas = document.getElementById("videoCanvas");
+    // var uri= 'ws://localhost:9999'
+
+    // var player = new JSMpeg.Player("ws://localhost:9999", {
+    // canvas: canvas
+    //});
     
   }
 };

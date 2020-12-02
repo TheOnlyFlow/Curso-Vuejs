@@ -7,6 +7,8 @@
                 </h3>
             </div>
         </div>
+
+        
         <component :is='currentComponent'></component>
        
     </div>

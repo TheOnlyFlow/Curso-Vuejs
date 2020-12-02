@@ -6,6 +6,7 @@
     />
 
     <AppSection
+      
       :ambientes="ambientes"
       :current-component="currentSectionComponent"
     />
@@ -29,7 +30,8 @@ export default {
   },
   data() {
     return {
-      currentSectionComponent: "AppSectionBanner",
+      
+     currentSectionComponent: "AppSectionBanner",
     }
   },
   methods: {
