@@ -14,5 +14,8 @@ export default  new VueRouter ({
     }, { 
         path: '/news',
         component: News
+    },{ 
+        path:'/admin',
+        redirect: '/'
     }]
 })
